@@ -1,0 +1,30 @@
+CREATE DATABASE library_management;
+USE library_management;
+
+CREATE TABLE books (
+    book_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    publication_year INT,
+    genre VARCHAR(30),
+    available BOOLEAN DEFAULT TRUE
+);
+
+INSERT INTO books (title, author, publication_year, genre)
+VALUES ('The Lord of the Rings', 'J.R.R. Tolkien', 1954, 'Fantasy'),
+('Pride and Prejudice', 'Jane Austen', 1813, 'Romance');
+
+SELECT * FROM books;
+
+UPDATE books SET genre = 'Science Fiction' WHERE book_id = 1;
+
+DELETE FROM books WHERE book_id = 2;
+
+INSERT INTO books (title, author, publication_year, genre)
+VALUES ('To Kill a Mockingbird', 'Harper Lee', 1960, 'Fiction');
+
+SELECT * FROM books WHERE author = 'J.R.R. Tolkien';
+
+UPDATE books SET available = FALSE WHERE book_id = 1;
+
+DELETE FROM books WHERE book_id = 3;
